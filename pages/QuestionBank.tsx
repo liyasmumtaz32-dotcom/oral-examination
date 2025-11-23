@@ -25,7 +25,7 @@ export const QuestionBank: React.FC = () => {
 
       <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden min-h-[600px] flex flex-col">
         {/* Tabs */}
-        <div className="flex border-b border-gray-100 overflow-x-auto">
+        <div className="flex border-b border-gray-100 overflow-x-auto scrollbar-hide">
             {SUBJECTS.map(subject => (
                 <button
                     key={subject.key}
@@ -45,8 +45,8 @@ export const QuestionBank: React.FC = () => {
         </div>
 
         {/* Content */}
-        <div className="p-8 flex-1 flex flex-col">
-            <div className="flex items-center justify-between mb-6">
+        <div className="p-4 md:p-8 flex-1 flex flex-col">
+            <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
                 <div className="flex items-center gap-3">
                     <div className="p-2 bg-emerald-100 rounded-lg text-emerald-600">
                         <Book className="w-6 h-6" />
@@ -60,7 +60,7 @@ export const QuestionBank: React.FC = () => {
                         </p>
                     </div>
                 </div>
-                <div className="flex items-center gap-2 bg-emerald-50 px-4 py-2 rounded-full">
+                <div className="flex items-center gap-2 bg-emerald-50 px-4 py-2 rounded-full w-fit">
                     <CheckSquare className="w-4 h-4 text-emerald-600" />
                     <span className="text-sm font-bold text-emerald-800">{activeQuestions.length} Soal Tersedia</span>
                 </div>
@@ -90,8 +90,8 @@ export const QuestionBank: React.FC = () => {
                                     )}
                                 </button>
                                 {openMaterialIndex === idx && (
-                                    <div className="p-6 bg-white border-t border-gray-200">
-                                        <p className="font-arabic text-xl leading-loose text-gray-800 text-justify dir-rtl" style={{ direction: 'rtl' }}>
+                                    <div className="p-4 md:p-6 bg-white border-t border-gray-200">
+                                        <p className="font-arabic text-lg md:text-xl leading-loose text-gray-800 text-justify dir-rtl" style={{ direction: 'rtl' }}>
                                             {material.content}
                                         </p>
                                     </div>
@@ -112,21 +112,21 @@ export const QuestionBank: React.FC = () => {
                         const answer = isDetail ? (item as QuestionDetail).answer : null;
 
                         return (
-                            <div key={index} className="flex gap-4 p-5 border border-gray-100 rounded-xl bg-gray-50 hover:bg-white hover:border-emerald-200 hover:shadow-md transition-all group">
+                            <div key={index} className="flex gap-4 p-4 md:p-5 border border-gray-100 rounded-xl bg-gray-50 hover:bg-white hover:border-emerald-200 hover:shadow-md transition-all group">
                                 <div className="flex-shrink-0">
                                     <div className="w-8 h-8 bg-white border border-gray-200 group-hover:border-emerald-300 rounded-full flex items-center justify-center font-bold text-gray-500 group-hover:text-emerald-600 text-sm shadow-sm transition-colors">
                                         {index + 1}
                                     </div>
                                 </div>
-                                <div className="flex-1 space-y-3">
+                                <div className="flex-1 space-y-3 min-w-0">
                                     {/* Question */}
                                     <div className="relative">
-                                        <p className="text-gray-900 font-bold text-xl font-arabic leading-loose dir-rtl" style={{ direction: 'rtl', textAlign: 'right' }}>
+                                        <p className="text-gray-900 font-bold text-xl font-arabic leading-loose dir-rtl break-words" style={{ direction: 'rtl', textAlign: 'right' }}>
                                             {questionText}
                                         </p>
                                         {translation && (
-                                            <p className="text-gray-500 text-sm mt-1 italic flex items-center gap-1 justify-end">
-                                                {translation} <Globe className="w-3 h-3" />
+                                            <p className="text-gray-500 text-sm mt-1 italic flex items-center gap-1 justify-end flex-wrap">
+                                                {translation} <Globe className="w-3 h-3 flex-shrink-0" />
                                             </p>
                                         )}
                                     </div>
@@ -135,10 +135,10 @@ export const QuestionBank: React.FC = () => {
                                     {answer && (
                                         <div className="mt-3 bg-emerald-50/80 border border-emerald-100 rounded-lg p-3">
                                             <div className="flex items-start gap-2">
-                                                <MessageCircle className="w-4 h-4 text-emerald-600 mt-1" />
+                                                <MessageCircle className="w-4 h-4 text-emerald-600 mt-1 flex-shrink-0" />
                                                 <div className="flex-1 text-right">
                                                     <span className="text-xs font-bold text-emerald-700 uppercase mb-1 block text-left">Jawaban:</span>
-                                                    <p className="text-emerald-900 font-medium font-arabic text-lg dir-rtl" style={{ direction: 'rtl' }}>
+                                                    <p className="text-emerald-900 font-medium font-arabic text-lg dir-rtl break-words" style={{ direction: 'rtl' }}>
                                                         {answer}
                                                     </p>
                                                 </div>

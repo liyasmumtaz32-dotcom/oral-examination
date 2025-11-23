@@ -65,29 +65,29 @@ export const Grading: React.FC<GradingProps> = ({ students, setStudents, examine
   return (
     <div className="space-y-6 pb-20">
       {/* Header & Controls */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center gap-4">
         <div>
             <h1 className="text-2xl font-bold text-gray-900">Lembar Penilaian & Ceklis</h1>
-            <p className="text-gray-500">
+            <p className="text-gray-500 text-sm">
                 Penguji Aktif: <span className="font-bold text-emerald-600">{examinerName}</span>
             </p>
         </div>
         
-        <div className="flex flex-col sm:flex-row gap-3 bg-white p-2 rounded-lg border border-gray-200 shadow-sm">
-             <div className="relative">
+        <div className="w-full xl:w-auto flex flex-col sm:flex-row gap-3 bg-white p-3 rounded-lg border border-gray-200 shadow-sm">
+             <div className="relative w-full sm:w-auto">
                 <Search className="absolute left-3 top-2.5 w-4 h-4 text-gray-400" />
                 <input
                   type="text"
                   placeholder="Cari Santri..."
-                  className="pl-9 pr-4 py-2 text-sm border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-emerald-500 w-full sm:w-48"
+                  className="pl-9 pr-4 py-2 text-sm border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-emerald-500 w-full sm:w-64"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
             </div>
-            <div className="relative">
+            <div className="relative w-full sm:w-auto">
                 <Filter className="absolute left-3 top-2.5 w-4 h-4 text-gray-400" />
                 <select 
-                    className="pl-9 pr-4 py-2 text-sm border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-emerald-500 bg-white"
+                    className="pl-9 pr-4 py-2 text-sm border border-gray-200 rounded-md focus:outline-none focus:ring-1 focus:ring-emerald-500 bg-white w-full sm:w-auto"
                     value={filterGroup}
                     onChange={(e) => setFilterGroup(e.target.value)}
                 >
@@ -107,7 +107,7 @@ export const Grading: React.FC<GradingProps> = ({ students, setStudents, examine
                 <button
                     key={subject.key}
                     onClick={() => setActiveSubject(subject.key)}
-                    className={`flex-shrink-0 px-6 py-4 text-sm font-bold uppercase tracking-wider transition-all border-b-2 ${
+                    className={`flex-shrink-0 px-6 py-4 text-sm font-bold uppercase tracking-wider transition-all border-b-2 whitespace-nowrap ${
                         activeSubject === subject.key 
                         ? 'border-emerald-500 text-emerald-600 bg-emerald-50' 
                         : 'border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50'
@@ -119,23 +119,23 @@ export const Grading: React.FC<GradingProps> = ({ students, setStudents, examine
         </div>
 
         {/* Main Table */}
-        <div className="overflow-x-auto">
-            <table className="w-full min-w-[1200px]">
+        <div className="overflow-x-auto w-full">
+            <table className="w-full min-w-[1000px] lg:min-w-[1200px]">
                 <thead>
                     <tr className="bg-gray-50 text-left">
                         <th className="px-4 py-3 text-xs font-bold text-gray-500 uppercase w-12 text-center border-r border-gray-200">No</th>
                         <th className="px-4 py-3 text-xs font-bold text-gray-500 uppercase w-64 border-r border-gray-200">Nama Santri</th>
                         <th className="px-4 py-3 text-xs font-bold text-gray-500 uppercase w-32 border-r border-gray-200">Penguji</th>
                         <th className="px-4 py-3 text-xs font-bold text-gray-500 uppercase border-r border-gray-200">
-                            <div className="flex items-center justify-between">
+                            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                                 <span>Ceklis Nomor Soal (Total: {activeQuestions.length})</span>
-                                <span className="text-[10px] normal-case bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full border border-amber-200">
+                                <span className="text-[10px] normal-case bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full border border-amber-200 w-fit">
                                     Target: 10 Soal/Siswa
                                 </span>
                             </div>
                         </th>
                         <th className="px-4 py-3 text-xs font-bold text-gray-500 uppercase w-24 text-center border-r border-gray-200">
-                            Nilai <br/> {SUBJECTS.find(s => s.key === activeSubject)?.label}
+                            Nilai <br/> <span className="text-[10px]">{SUBJECTS.find(s => s.key === activeSubject)?.label}</span>
                         </th>
                         <th className="px-4 py-3 text-xs font-bold text-gray-700 uppercase w-20 text-center border-r border-gray-200 bg-gray-100">
                             Total
@@ -179,7 +179,6 @@ export const Grading: React.FC<GradingProps> = ({ students, setStudents, examine
                                         </div>
                                     </td>
                                     <td className="px-4 py-4 border-r border-gray-200 text-sm text-gray-600">
-                                        {/* Jika penguji santri sama dengan penguji login, bold */}
                                         <span className={student.examiner === examinerName ? 'font-bold text-emerald-700' : ''}>
                                             {student.examiner}
                                         </span>
@@ -263,18 +262,16 @@ export const Grading: React.FC<GradingProps> = ({ students, setStudents, examine
       {/* Legend / Helper */}
       <div className="bg-emerald-50 border border-emerald-100 rounded-lg p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div className="flex items-start gap-3">
-            <CheckSquare className="w-5 h-5 text-emerald-600 mt-0.5" />
+            <CheckSquare className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" />
             <div className="text-sm text-emerald-900">
                 <p className="font-bold">Panduan Pengisian:</p>
                 <ul className="list-disc list-inside mt-1 space-y-0.5 text-emerald-800">
                     <li>Klik nomor soal untuk menandai. <b>Minimal 10 soal</b> per santri.</li>
-                    <li>Indikator akan berubah dari <span className="text-amber-600 font-bold">Oranye</span> ke <span className="text-emerald-600 font-bold">Hijau</span> jika target tercapai.</li>
                     <li>Isi nilai (0-100) pada kolom Nilai. <b>Total & Rata-rata</b> akan terhitung otomatis.</li>
-                    <li>Nama Penguji akan otomatis diperbarui menjadi <b>{examinerName}</b> saat nilai diubah.</li>
                 </ul>
             </div>
         </div>
-        <div className="flex items-center gap-2 text-sm text-emerald-700 font-medium">
+        <div className="flex items-center gap-2 text-sm text-emerald-700 font-medium whitespace-nowrap">
             <Calculator className="w-4 h-4" />
             Auto-Calculate Active
         </div>

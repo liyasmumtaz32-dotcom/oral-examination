@@ -8,7 +8,7 @@ import { ExportView } from './pages/ExportView';
 import { QuestionBank } from './pages/QuestionBank';
 import { INITIAL_STUDENTS } from './constants';
 import { Student } from './types';
-import { GraduationCap, ArrowRight, Calendar } from 'lucide-react';
+import { GraduationCap, ArrowRight, Calendar, Menu } from 'lucide-react';
 
 function App() {
   // Central State Management
@@ -18,6 +18,9 @@ function App() {
   const [examinerName, setExaminerName] = useState<string>('');
   const [examDate, setExamDate] = useState<string>(''); // Format YYYY-MM-DD
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  
+  // Mobile Sidebar State
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   
   // Temp state for login form
   const [tempName, setTempName] = useState('');
@@ -39,7 +42,6 @@ function App() {
   }, []);
 
   // Sync examiner name to ALL students data upon login
-  // This ensures "Ust. Fulan" is replaced by the real logged-in user in all documents
   useEffect(() => {
     if (isLoggedIn && examinerName) {
         setStudents(prev => prev.map(s => ({
@@ -66,8 +68,7 @@ function App() {
     setExaminerName('');
     setTempName('');
     localStorage.removeItem('examinerName');
-    // We keep the date in localStorage as convenience, or remove it:
-    // localStorage.removeItem('examDate'); 
+    // We keep the date in localStorage as convenience
   };
 
   if (!isLoggedIn) {
@@ -131,20 +132,45 @@ function App() {
 
   return (
     <HashRouter>
-      <div className="min-h-screen bg-gray-50">
-        <Sidebar examinerName={examinerName} onLogout={handleLogout} />
+      <div className="flex min-h-screen bg-gray-50">
+        
+        <Sidebar 
+            examinerName={examinerName} 
+            onLogout={handleLogout}
+            isOpen={isSidebarOpen}
+            onClose={() => setIsSidebarOpen(false)}
+        />
         
         {/* Main Content Area */}
-        <main className="transition-all duration-300 md:ml-64 p-4 md:p-8 min-h-screen">
-          <Routes>
-            <Route path="/" element={<Dashboard students={students} />} />
-            <Route path="/students" element={<StudentList students={students} setStudents={setStudents} currentExaminer={examinerName} />} />
-            <Route path="/questions" element={<QuestionBank />} />
-            <Route path="/grading" element={<Grading students={students} setStudents={setStudents} examinerName={examinerName} />} />
-            <Route path="/export" element={<ExportView students={students} currentExaminer={examinerName} examDate={examDate} />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </main>
+        <div className="flex-1 flex flex-col min-w-0 md:ml-64 transition-all duration-300">
+            
+            {/* Mobile Header */}
+            <div className="md:hidden bg-white border-b border-gray-200 p-4 sticky top-0 z-30 flex items-center gap-3 shadow-sm">
+                <button 
+                    onClick={() => setIsSidebarOpen(true)}
+                    className="p-2 -ml-2 text-gray-600 hover:bg-gray-100 rounded-lg"
+                >
+                    <Menu className="w-6 h-6" />
+                </button>
+                <div className="flex items-center gap-2">
+                    <div className="w-7 h-7 bg-emerald-600 rounded-md flex items-center justify-center">
+                        <GraduationCap className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="font-bold text-gray-800">Al-Ghozali</span>
+                </div>
+            </div>
+
+            <main className="flex-1 p-4 md:p-8 overflow-y-auto">
+                <Routes>
+                    <Route path="/" element={<Dashboard students={students} />} />
+                    <Route path="/students" element={<StudentList students={students} setStudents={setStudents} currentExaminer={examinerName} />} />
+                    <Route path="/questions" element={<QuestionBank />} />
+                    <Route path="/grading" element={<Grading students={students} setStudents={setStudents} examinerName={examinerName} />} />
+                    <Route path="/export" element={<ExportView students={students} currentExaminer={examinerName} examDate={examDate} />} />
+                    <Route path="*" element={<Navigate to="/" replace />} />
+                </Routes>
+            </main>
+        </div>
       </div>
     </HashRouter>
   );
