@@ -57,7 +57,7 @@ export const StudentList: React.FC<StudentListProps> = ({ students, setStudents,
           setEditingStudent({
             name: '', 
             nis: '', 
-            class: '5D', 
+            class: '5C', 
             group: 'A', 
             gender: 'L', 
             examiner: currentExaminer // Auto-fill here

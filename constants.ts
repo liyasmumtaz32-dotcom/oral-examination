@@ -414,7 +414,7 @@ export const QUESTION_BANK: Record<keyof Score, (string | QuestionDetail)[]> = {
 
     // --- MATERI 4: Kebangkitan Bahasa (نهضة اللغة) ---
     {
-      question: "مَتَى هَجَرَ الْأَهْلُ اللُّغَةَ الْعَرَبِيَّةَ؟",
+      question: "مَتَى هَجَرَ الْأَهْلُ اللُّغَةِ الْعَرَبِيَّةَ؟",
       translation: "Kapan penduduk meninggalkan bahasa Arab?",
       answer: "أَيَّامَ دُوَلِ الْإِسْلَامِ."
     },
@@ -588,7 +588,7 @@ export const QUESTION_BANK: Record<keyof Score, (string | QuestionDetail)[]> = {
         answer: "مَا كَانَتْ حُرُوفُهُ كُلُّهَا أَصْلِيَّةً.",
     },
     {
-        question: "كَمْ قِسْمًا / نَوْعًا مِنَ الْفِعْلِ الْمُجَرَّدِ ؟ وَهَاتِ مِثَالاً مِنْهُ !",
+        question: "كَمْ قِسْمًا / نَوْعًا مِنَ الْفِعْلِ الْمُجَرَّدُ ؟ وَهَاتِ مِثَالاً مِنْهُ !",
         translation: "Berapa pembagian Fi'il Mujarrod? Berikan contoh!",
         answer: "نَوْعَانِ: الثُّلَاثِيُّ الْمُجَرَّدُ (نَصَرَ) وَالرُّبَاعِيُّ الْمُجَرَّدُ (دَحْرَجَ).",
     },
@@ -802,32 +802,54 @@ export const QUESTION_BANK: Record<keyof Score, (string | QuestionDetail)[]> = {
 
 export const INITIAL_STUDENTS: Student[] = [
   // Kelompok A
-  { id: '1', no: 1, name: 'Ahmad Fadhlillah', nis: '5001', class: '5D', group: 'A', gender: 'L', examiner: '', scores: emptyScores, questionLog: emptyLogs },
-  { id: '2', no: 2, name: 'Alkiana Saputra', nis: '5002', class: '5D', group: 'A', gender: 'L', examiner: '', scores: emptyScores, questionLog: emptyLogs },
-  { id: '3', no: 3, name: 'Amir Husein', nis: '5003', class: '5D', group: 'A', gender: 'L', examiner: '', scores: emptyScores, questionLog: emptyLogs },
-  { id: '4', no: 4, name: 'Ananda Rizky Firdaus', nis: '5004', class: '5D', group: 'A', gender: 'L', examiner: '', scores: emptyScores, questionLog: emptyLogs },
-  { id: '5', no: 5, name: 'Ayyas Farhat Syamil', nis: '5005', class: '5D', group: 'A', gender: 'L', examiner: '', scores: emptyScores, questionLog: emptyLogs },
-  { id: '6', no: 6, name: 'Denis Aditya Ramadhan', nis: '5006', class: '5D', group: 'A', gender: 'L', examiner: '', scores: emptyScores, questionLog: emptyLogs },
-  { id: '7', no: 7, name: 'Denis Putra Pratama', nis: '5007', class: '5D', group: 'A', gender: 'L', examiner: '', scores: emptyScores, questionLog: emptyLogs },
-  { id: '8', no: 8, name: 'Gilang Prananda', nis: '5008', class: '5D', group: 'A', gender: 'L', examiner: '', scores: emptyScores, questionLog: emptyLogs },
+  { id: '1', no: 1, name: 'Ahmad Sopian', nis: '5001', class: '5C', group: 'A', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
+  { 
+    id: '2', no: 2, name: 'Arfan Nurdiansyah', nis: '5002', class: '5C', group: 'A', gender: 'L', 
+    examiner: 'Liyas Syarifudin, M.Pd.', 
+    scores: { muhadatsah: 80, mutholaah: 80, nahwu: 85, shorof: 76, tarjamah: 86 }, 
+    questionLog: emptyLogs 
+  },
+  { id: '3', no: 3, name: 'Fachri Akbar Ajabar', nis: '5003', class: '5C', group: 'A', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
+  { 
+    id: '4', no: 4, name: 'Faizal Abdul Aziz', nis: '5004', class: '5C', group: 'A', gender: 'L', 
+    examiner: 'Liyas Syarifudin, M.Pd.', 
+    scores: { muhadatsah: 50, mutholaah: 45, nahwu: 40, shorof: 45, tarjamah: 40 }, 
+    questionLog: emptyLogs 
+  },
+  { 
+    id: '5', no: 5, name: 'Ibrahim Algazali R', nis: '5005', class: '5C', group: 'A', gender: 'L', 
+    examiner: 'Liyas Syarifudin, M.Pd.', 
+    scores: { muhadatsah: 90, mutholaah: 80, nahwu: 78, shorof: 70, tarjamah: 80 }, 
+    questionLog: emptyLogs 
+  },
+  { 
+    id: '6', no: 6, name: 'Kieno Isnan Haqqi', nis: '5006', class: '5C', group: 'A', gender: 'L', 
+    examiner: 'Liyas Syarifudin, M.Pd.', 
+    scores: { muhadatsah: 90, mutholaah: 87, nahwu: 78, shorof: 75, tarjamah: 85 }, 
+    questionLog: emptyLogs 
+  },
+  { 
+    id: '7', no: 7, name: 'M. Aditya Juliansyah', nis: '5007', class: '5C', group: 'A', gender: 'L', 
+    examiner: 'Liyas Syarifudin, M.Pd.', 
+    scores: { muhadatsah: 48, mutholaah: 44, nahwu: 30, shorof: 30, tarjamah: 35 }, 
+    questionLog: emptyLogs 
+  },
 
   // Kelompok B
-  { id: '9', no: 9, name: 'Ibnu Zaki', nis: '5009', class: '5D', group: 'B', gender: 'L', examiner: '', scores: emptyScores, questionLog: emptyLogs },
-  { id: '10', no: 10, name: 'Miqyal Arsy', nis: '5010', class: '5D', group: 'B', gender: 'L', examiner: '', scores: emptyScores, questionLog: emptyLogs },
-  { id: '11', no: 11, name: 'Muhammad Rizky F', nis: '5011', class: '5D', group: 'B', gender: 'L', examiner: '', scores: emptyScores, questionLog: emptyLogs },
-  { id: '12', no: 12, name: 'Muhammad Fattan A', nis: '5012', class: '5D', group: 'B', gender: 'L', examiner: '', scores: emptyScores, questionLog: emptyLogs },
-  { id: '13', no: 13, name: 'Muhammad Fazril', nis: '5013', class: '5D', group: 'B', gender: 'L', examiner: '', scores: emptyScores, questionLog: emptyLogs },
-  { id: '14', no: 14, name: 'Muhammad Firli A', nis: '5014', class: '5D', group: 'B', gender: 'L', examiner: '', scores: emptyScores, questionLog: emptyLogs },
-  { id: '15', no: 15, name: 'Muhammad Iqbal F', nis: '5015', class: '5D', group: 'B', gender: 'L', examiner: '', scores: emptyScores, questionLog: emptyLogs },
-  { id: '16', no: 16, name: 'Muhammad Rangga Mukni', nis: '5016', class: '5D', group: 'B', gender: 'L', examiner: '', scores: emptyScores, questionLog: emptyLogs },
+  { id: '8', no: 8, name: 'Mohammad Fadhlan V', nis: '5008', class: '5C', group: 'B', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
+  { id: '9', no: 9, name: 'Muchammad Fatir A', nis: '5009', class: '5C', group: 'B', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
+  { id: '10', no: 10, name: 'Muhamad Haikal', nis: '5010', class: '5C', group: 'B', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
+  { id: '11', no: 11, name: 'Muhammad Revan A', nis: '5011', class: '5C', group: 'B', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
+  { id: '12', no: 12, name: 'Muhammad Afnan R', nis: '5012', class: '5C', group: 'B', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
+  { id: '13', no: 13, name: 'Muhammad Hasbi', nis: '5013', class: '5C', group: 'B', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
+  { id: '14', no: 14, name: 'Muhammad Jalfi Al Farizi', nis: '5014', class: '5C', group: 'B', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
 
   // Kelompok C
-  { id: '17', no: 17, name: 'Muhammad Rayhan M', nis: '5017', class: '5D', group: 'C', gender: 'L', examiner: '', scores: emptyScores, questionLog: emptyLogs },
-  { id: '18', no: 18, name: 'Muhammad Reifan S', nis: '5018', class: '5D', group: 'C', gender: 'L', examiner: '', scores: emptyScores, questionLog: emptyLogs },
-  { id: '19', no: 19, name: 'Muhammad Zaenal A', nis: '5019', class: '5D', group: 'C', gender: 'L', examiner: '', scores: emptyScores, questionLog: emptyLogs },
-  { id: '20', no: 20, name: 'Pahrurrozi Alqodir', nis: '5020', class: '5D', group: 'C', gender: 'L', examiner: '', scores: emptyScores, questionLog: emptyLogs },
-  { id: '21', no: 21, name: 'Pragia Aqmal Dastian', nis: '5021', class: '5D', group: 'C', gender: 'L', examiner: '', scores: emptyScores, questionLog: emptyLogs },
-  { id: '22', no: 22, name: 'Rizki Haikal Mustajib', nis: '5022', class: '5D', group: 'C', gender: 'L', examiner: '', scores: emptyScores, questionLog: emptyLogs },
-  { id: '23', no: 23, name: 'Surya Anggara Jati', nis: '5023', class: '5D', group: 'C', gender: 'L', examiner: '', scores: emptyScores, questionLog: emptyLogs },
+  { id: '15', no: 15, name: 'Raihan Muftihurrizqi', nis: '5015', class: '5C', group: 'C', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
+  { id: '16', no: 16, name: 'Muhammad Iqbal A', nis: '5016', class: '5C', group: 'C', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
+  { id: '17', no: 17, name: 'Muhammad Zaki A', nis: '5017', class: '5C', group: 'C', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
+  { id: '18', no: 18, name: 'Muharriyansyah H', nis: '5018', class: '5C', group: 'C', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
+  { id: '19', no: 19, name: 'Rafi Alhakam Sadin', nis: '5019', class: '5C', group: 'C', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
+  { id: '20', no: 20, name: 'Ragil Fadhilah', nis: '5020', class: '5C', group: 'C', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
+  { id: '21', no: 21, name: 'Ziyad Rachman Syafiq', nis: '5021', class: '5C', group: 'C', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
 ];
-        

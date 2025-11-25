@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Users, BookOpen, Printer, GraduationCap, FileQuestion, LogOut, X } from 'lucide-react';
+import { LayoutDashboard, Users, BookOpen, Printer, GraduationCap, FileQuestion, LogOut, X, Database } from 'lucide-react';
 
 interface SidebarProps {
     examinerName: string;
@@ -78,13 +79,19 @@ export const Sidebar: React.FC<SidebarProps> = ({ examinerName, onLogout, isOpen
             <Printer className="w-5 h-5 flex-shrink-0" />
             Cetak Laporan
           </NavLink>
+          <div className="pt-4 mt-4 border-t border-gray-100">
+             <NavLink to="/settings" onClick={onClose} className={navClass}>
+                <Database className="w-5 h-5 flex-shrink-0" />
+                Database Backup
+            </NavLink>
+          </div>
         </nav>
         
         <div className="p-6 border-t border-gray-100 bg-white">
           <div className="bg-emerald-50 p-4 rounded-lg mb-3">
             <p className="text-xs font-semibold text-emerald-800 uppercase">Status Penguji</p>
             <p className="text-sm text-emerald-600 mt-1 font-bold truncate" title={examinerName}>{examinerName}</p>
-            <p className="text-xs text-emerald-500">Kelas 5D</p>
+            <p className="text-xs text-emerald-500">Kelas 5C</p>
           </div>
           <button 
               onClick={onLogout}

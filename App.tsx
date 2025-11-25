@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Sidebar } from './components/Sidebar';
@@ -6,13 +7,27 @@ import { StudentList } from './pages/StudentList';
 import { Grading } from './pages/Grading';
 import { ExportView } from './pages/ExportView';
 import { QuestionBank } from './pages/QuestionBank';
+import { BackupRestore } from './pages/BackupRestore';
 import { INITIAL_STUDENTS } from './constants';
 import { Student } from './types';
 import { GraduationCap, ArrowRight, Calendar, Menu } from 'lucide-react';
 
 function App() {
   // Central State Management
-  const [students, setStudents] = useState<Student[]>(INITIAL_STUDENTS);
+  // Load from localStorage to persist data across refreshes
+  // Key updated to force refresh with new data containing scores
+  const [students, setStudents] = useState<Student[]>(() => {
+    const saved = localStorage.getItem('alghozali_students_5c_updated');
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (error) {
+        console.error('Error parsing local storage:', error);
+        return INITIAL_STUDENTS;
+      }
+    }
+    return INITIAL_STUDENTS;
+  });
   
   // Auth & Config State
   const [examinerName, setExaminerName] = useState<string>('');
@@ -26,7 +41,7 @@ function App() {
   const [tempName, setTempName] = useState('');
   const [tempDate, setTempDate] = useState('');
 
-  // Check local storage on load
+  // Check local storage for auth details on load
   useEffect(() => {
     const savedName = localStorage.getItem('examinerName');
     const savedDate = localStorage.getItem('examDate');
@@ -41,15 +56,10 @@ function App() {
     }
   }, []);
 
-  // Sync examiner name to ALL students data upon login
+  // Persist students data whenever it changes
   useEffect(() => {
-    if (isLoggedIn && examinerName) {
-        setStudents(prev => prev.map(s => ({
-            ...s,
-            examiner: examinerName
-        })));
-    }
-  }, [isLoggedIn, examinerName]);
+    localStorage.setItem('alghozali_students_5c_updated', JSON.stringify(students));
+  }, [students]);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -166,7 +176,8 @@ function App() {
                     <Route path="/students" element={<StudentList students={students} setStudents={setStudents} currentExaminer={examinerName} />} />
                     <Route path="/questions" element={<QuestionBank />} />
                     <Route path="/grading" element={<Grading students={students} setStudents={setStudents} examinerName={examinerName} />} />
-                    <Route path="/export" element={<ExportView students={students} currentExaminer={examinerName} examDate={examDate} />} />
+                    <Route path="/export" element={<ExportView students={students} setStudents={setStudents} currentExaminer={examinerName} examDate={examDate} />} />
+                    <Route path="/settings" element={<BackupRestore students={students} setStudents={setStudents} />} />
                     <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
             </main>

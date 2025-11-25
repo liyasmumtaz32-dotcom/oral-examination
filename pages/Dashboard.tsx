@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Users, BookCheck, ClipboardList, TrendingUp } from 'lucide-react';
 import { StatCard } from '../components/StatCard';
@@ -34,7 +35,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ students }) => {
     <div className="space-y-6">
       <div className="flex flex-col md:flex-row md:items-center justify-between">
         <h1 className="text-2xl font-bold text-gray-900">Dashboard Ikhtisar</h1>
-        <p className="text-gray-500">Overview Ujian Lisan Kelas 5D</p>
+        <p className="text-gray-500">Overview Ujian Lisan Kelas 5C</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
