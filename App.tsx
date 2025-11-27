@@ -17,7 +17,7 @@ function App() {
   // Load from localStorage to persist data across refreshes
   // Key updated to force refresh with new data containing scores
   const [students, setStudents] = useState<Student[]>(() => {
-    const saved = localStorage.getItem('alghozali_students_5c_updated');
+    const saved = localStorage.getItem('alghozali_students_5c_fixed_scores');
     if (saved) {
       try {
         return JSON.parse(saved);
@@ -58,7 +58,7 @@ function App() {
 
   // Persist students data whenever it changes
   useEffect(() => {
-    localStorage.setItem('alghozali_students_5c_updated', JSON.stringify(students));
+    localStorage.setItem('alghozali_students_5c_fixed_scores', JSON.stringify(students));
   }, [students]);
 
   const handleLogin = (e: React.FormEvent) => {

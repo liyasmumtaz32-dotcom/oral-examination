@@ -10,15 +10,6 @@ const emptyScores: Score = {
   tarjamah: 0,
 };
 
-// Helper to create empty question logs
-const emptyLogs = {
-  muhadatsah: [],
-  mutholaah: [],
-  nahwu: [],
-  shorof: [],
-  tarjamah: [],
-};
-
 export const MUTHOLAAH_MATERIALS: ReadingMaterial[] = [
   {
     title: "Materi 1: Sifat Tanggap",
@@ -801,55 +792,256 @@ export const QUESTION_BANK: Record<keyof Score, (string | QuestionDetail)[]> = {
 };
 
 export const INITIAL_STUDENTS: Student[] = [
-  // Kelompok A
-  { id: '1', no: 1, name: 'Ahmad Sopian', nis: '5001', class: '5C', group: 'A', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
-  { 
-    id: '2', no: 2, name: 'Arfan Nurdiansyah', nis: '5002', class: '5C', group: 'A', gender: 'L', 
-    examiner: 'Liyas Syarifudin, M.Pd.', 
-    scores: { muhadatsah: 80, mutholaah: 80, nahwu: 85, shorof: 76, tarjamah: 86 }, 
-    questionLog: emptyLogs 
+  {
+    "id": "1",
+    "no": 1,
+    "name": "Ahmad Sopian",
+    "nis": "5001",
+    "class": "5C",
+    "group": "A",
+    "gender": "L",
+    "examiner": "Liyas Syarifudin, M.Pd.",
+    "scores": { "muhadatsah": 50, "mutholaah": 45, "nahwu": 40, "shorof": 45, "tarjamah": 60 },
+    "questionLog": { "muhadatsah": [], "mutholaah": [], "nahwu": [], "shorof": [], "tarjamah": [] }
   },
-  { id: '3', no: 3, name: 'Fachri Akbar Ajabar', nis: '5003', class: '5C', group: 'A', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
-  { 
-    id: '4', no: 4, name: 'Faizal Abdul Aziz', nis: '5004', class: '5C', group: 'A', gender: 'L', 
-    examiner: 'Liyas Syarifudin, M.Pd.', 
-    scores: { muhadatsah: 50, mutholaah: 45, nahwu: 40, shorof: 45, tarjamah: 40 }, 
-    questionLog: emptyLogs 
+  {
+    "id": "2",
+    "no": 2,
+    "name": "Arfan Nurdiansyah",
+    "nis": "5002",
+    "class": "5C",
+    "group": "A",
+    "gender": "L",
+    "examiner": "Liyas Syarifudin, M.Pd.",
+    "scores": { "muhadatsah": 80, "mutholaah": 80, "nahwu": 85, "shorof": 76, "tarjamah": 86 },
+    "questionLog": { "muhadatsah": [], "mutholaah": [], "nahwu": [], "shorof": [], "tarjamah": [] }
   },
-  { 
-    id: '5', no: 5, name: 'Ibrahim Algazali R', nis: '5005', class: '5C', group: 'A', gender: 'L', 
-    examiner: 'Liyas Syarifudin, M.Pd.', 
-    scores: { muhadatsah: 90, mutholaah: 80, nahwu: 78, shorof: 70, tarjamah: 80 }, 
-    questionLog: emptyLogs 
+  {
+    "id": "3",
+    "no": 3,
+    "name": "Fachri Akbar Ajabar",
+    "nis": "5003",
+    "class": "5C",
+    "group": "A",
+    "gender": "L",
+    "examiner": "Liyas Syarifudin, M.Pd.",
+    "scores": { "muhadatsah": 55, "mutholaah": 45, "nahwu": 45, "shorof": 45, "tarjamah": 68 },
+    "questionLog": { "muhadatsah": [], "mutholaah": [], "nahwu": [], "shorof": [], "tarjamah": [] }
   },
-  { 
-    id: '6', no: 6, name: 'Kieno Isnan Haqqi', nis: '5006', class: '5C', group: 'A', gender: 'L', 
-    examiner: 'Liyas Syarifudin, M.Pd.', 
-    scores: { muhadatsah: 90, mutholaah: 87, nahwu: 78, shorof: 75, tarjamah: 85 }, 
-    questionLog: emptyLogs 
+  {
+    "id": "4",
+    "no": 4,
+    "name": "Faizal Abdul Aziz",
+    "nis": "5004",
+    "class": "5C",
+    "group": "A",
+    "gender": "L",
+    "examiner": "Liyas Syarifudin, M.Pd.",
+    "scores": { "muhadatsah": 50, "mutholaah": 45, "nahwu": 40, "shorof": 45, "tarjamah": 40 },
+    "questionLog": { "muhadatsah": [], "mutholaah": [], "nahwu": [], "shorof": [], "tarjamah": [] }
   },
-  { 
-    id: '7', no: 7, name: 'M. Aditya Juliansyah', nis: '5007', class: '5C', group: 'A', gender: 'L', 
-    examiner: 'Liyas Syarifudin, M.Pd.', 
-    scores: { muhadatsah: 48, mutholaah: 44, nahwu: 30, shorof: 30, tarjamah: 35 }, 
-    questionLog: emptyLogs 
+  {
+    "id": "5",
+    "no": 5,
+    "name": "Ibrahim Algazali R",
+    "nis": "5005",
+    "class": "5C",
+    "group": "A",
+    "gender": "L",
+    "examiner": "Liyas Syarifudin, M.Pd.",
+    "scores": { "muhadatsah": 90, "mutholaah": 80, "nahwu": 78, "shorof": 70, "tarjamah": 80 },
+    "questionLog": { "muhadatsah": [], "mutholaah": [], "nahwu": [], "shorof": [], "tarjamah": [] }
   },
-
-  // Kelompok B
-  { id: '8', no: 8, name: 'Mohammad Fadhlan V', nis: '5008', class: '5C', group: 'B', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
-  { id: '9', no: 9, name: 'Muchammad Fatir A', nis: '5009', class: '5C', group: 'B', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
-  { id: '10', no: 10, name: 'Muhamad Haikal', nis: '5010', class: '5C', group: 'B', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
-  { id: '11', no: 11, name: 'Muhammad Revan A', nis: '5011', class: '5C', group: 'B', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
-  { id: '12', no: 12, name: 'Muhammad Afnan R', nis: '5012', class: '5C', group: 'B', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
-  { id: '13', no: 13, name: 'Muhammad Hasbi', nis: '5013', class: '5C', group: 'B', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
-  { id: '14', no: 14, name: 'Muhammad Jalfi Al Farizi', nis: '5014', class: '5C', group: 'B', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
-
-  // Kelompok C
-  { id: '15', no: 15, name: 'Raihan Muftihurrizqi', nis: '5015', class: '5C', group: 'C', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
-  { id: '16', no: 16, name: 'Muhammad Iqbal A', nis: '5016', class: '5C', group: 'C', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
-  { id: '17', no: 17, name: 'Muhammad Zaki A', nis: '5017', class: '5C', group: 'C', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
-  { id: '18', no: 18, name: 'Muharriyansyah H', nis: '5018', class: '5C', group: 'C', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
-  { id: '19', no: 19, name: 'Rafi Alhakam Sadin', nis: '5019', class: '5C', group: 'C', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
-  { id: '20', no: 20, name: 'Ragil Fadhilah', nis: '5020', class: '5C', group: 'C', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
-  { id: '21', no: 21, name: 'Ziyad Rachman Syafiq', nis: '5021', class: '5C', group: 'C', gender: 'L', examiner: 'Liyas Syarifudin, M.Pd.', scores: emptyScores, questionLog: emptyLogs },
+  {
+    "id": "6",
+    "no": 6,
+    "name": "Kieno Isnan Haqqi",
+    "nis": "5006",
+    "class": "5C",
+    "group": "A",
+    "gender": "L",
+    "examiner": "Liyas Syarifudin, M.Pd.",
+    "scores": { "muhadatsah": 90, "mutholaah": 87, "nahwu": 78, "shorof": 75, "tarjamah": 85 },
+    "questionLog": { "muhadatsah": [], "mutholaah": [], "nahwu": [], "shorof": [], "tarjamah": [] }
+  },
+  {
+    "id": "7",
+    "no": 7,
+    "name": "M. Aditya Juliansyah",
+    "nis": "5007",
+    "class": "5C",
+    "group": "A",
+    "gender": "L",
+    "examiner": "Liyas Syarifudin, M.Pd.",
+    "scores": { "muhadatsah": 48, "mutholaah": 44, "nahwu": 30, "shorof": 30, "tarjamah": 35 },
+    "questionLog": { "muhadatsah": [], "mutholaah": [], "nahwu": [], "shorof": [], "tarjamah": [] }
+  },
+  {
+    "id": "8",
+    "no": 8,
+    "name": "Mohammad Fadhlan V",
+    "nis": "5008",
+    "class": "5C",
+    "group": "B",
+    "gender": "L",
+    "examiner": "Liyas Syarifudin, M.Pd.",
+    "scores": { "muhadatsah": 65, "mutholaah": 45, "nahwu": 44, "shorof": 45, "tarjamah": 60 },
+    "questionLog": { "muhadatsah": [], "mutholaah": [], "nahwu": [], "shorof": [], "tarjamah": [] }
+  },
+  {
+    "id": "9",
+    "no": 9,
+    "name": "Muchammad Fatir A",
+    "nis": "5009",
+    "class": "5C",
+    "group": "B",
+    "gender": "L",
+    "examiner": "Liyas Syarifudin, M.Pd.",
+    "scores": { "muhadatsah": 75, "mutholaah": 70, "nahwu": 65, "shorof": 58, "tarjamah": 70 },
+    "questionLog": { "muhadatsah": [], "mutholaah": [], "nahwu": [], "shorof": [], "tarjamah": [] }
+  },
+  {
+    "id": "10",
+    "no": 10,
+    "name": "Muhamad Haikal",
+    "nis": "5010",
+    "class": "5C",
+    "group": "B",
+    "gender": "L",
+    "examiner": "Liyas Syarifudin, M.Pd.",
+    "scores": { "muhadatsah": 40, "mutholaah": 40, "nahwu": 40, "shorof": 40, "tarjamah": 45 },
+    "questionLog": { "muhadatsah": [], "mutholaah": [], "nahwu": [], "shorof": [], "tarjamah": [] }
+  },
+  {
+    "id": "11",
+    "no": 11,
+    "name": "Muhammad Revan A",
+    "nis": "5011",
+    "class": "5C",
+    "group": "B",
+    "gender": "L",
+    "examiner": "Liyas Syarifudin, M.Pd.",
+    "scores": { "muhadatsah": 55, "mutholaah": 70, "nahwu": 50, "shorof": 45, "tarjamah": 78 },
+    "questionLog": { "muhadatsah": [], "mutholaah": [], "nahwu": [], "shorof": [], "tarjamah": [] }
+  },
+  {
+    "id": "12",
+    "no": 12,
+    "name": "Muhammad Afnan R",
+    "nis": "5012",
+    "class": "5C",
+    "group": "B",
+    "gender": "L",
+    "examiner": "Liyas Syarifudin, M.Pd.",
+    "scores": { "muhadatsah": 78, "mutholaah": 76, "nahwu": 70, "shorof": 75, "tarjamah": 90 },
+    "questionLog": { "muhadatsah": [], "mutholaah": [], "nahwu": [], "shorof": [], "tarjamah": [] }
+  },
+  {
+    "id": "13",
+    "no": 13,
+    "name": "Muhammad Hasbi",
+    "nis": "5013",
+    "class": "5C",
+    "group": "B",
+    "gender": "L",
+    "examiner": "Liyas Syarifudin, M.Pd.",
+    "scores": { "muhadatsah": 77, "mutholaah": 77, "nahwu": 65, "shorof": 70, "tarjamah": 85 },
+    "questionLog": { "muhadatsah": [], "mutholaah": [], "nahwu": [], "shorof": [], "tarjamah": [] }
+  },
+  {
+    "id": "14",
+    "no": 14,
+    "name": "Muhammad Jalfi Al Farizi",
+    "nis": "5014",
+    "class": "5C",
+    "group": "B",
+    "gender": "L",
+    "examiner": "Liyas Syarifudin, M.Pd.",
+    "scores": { "muhadatsah": 56, "mutholaah": 76, "nahwu": 60, "shorof": 65, "tarjamah": 80 },
+    "questionLog": { "muhadatsah": [], "mutholaah": [], "nahwu": [], "shorof": [], "tarjamah": [] }
+  },
+  {
+    "id": "15",
+    "no": 15,
+    "name": "Raihan Muftihurrizqi",
+    "nis": "5015",
+    "class": "5C",
+    "group": "C",
+    "gender": "L",
+    "examiner": "Liyas Syarifudin, M.Pd.",
+    "scores": { "muhadatsah": 75, "mutholaah": 80, "nahwu": 70, "shorof": 80, "tarjamah": 85 },
+    "questionLog": { "muhadatsah": [], "mutholaah": [], "nahwu": [], "shorof": [], "tarjamah": [] }
+  },
+  {
+    "id": "16",
+    "no": 16,
+    "name": "Muhammad Iqbal A",
+    "nis": "5016",
+    "class": "5C",
+    "group": "C",
+    "gender": "L",
+    "examiner": "Liyas Syarifudin, M.Pd.",
+    "scores": { "muhadatsah": 75, "mutholaah": 70, "nahwu": 72, "shorof": 68, "tarjamah": 78 },
+    "questionLog": { "muhadatsah": [], "mutholaah": [], "nahwu": [], "shorof": [], "tarjamah": [] }
+  },
+  {
+    "id": "17",
+    "no": 17,
+    "name": "Muhammad Zaki A",
+    "nis": "5017",
+    "class": "5C",
+    "group": "C",
+    "gender": "L",
+    "examiner": "Liyas Syarifudin, M.Pd.",
+    "scores": { "muhadatsah": 45, "mutholaah": 40, "nahwu": 40, "shorof": 45, "tarjamah": 50 },
+    "questionLog": { "muhadatsah": [], "mutholaah": [], "nahwu": [], "shorof": [], "tarjamah": [] }
+  },
+  {
+    "id": "18",
+    "no": 18,
+    "name": "Muharriyansyah H",
+    "nis": "5018",
+    "class": "5C",
+    "group": "C",
+    "gender": "L",
+    "examiner": "Liyas Syarifudin, M.Pd.",
+    "scores": { "muhadatsah": 65, "mutholaah": 65, "nahwu": 60, "shorof": 65, "tarjamah": 78 },
+    "questionLog": { "muhadatsah": [], "mutholaah": [], "nahwu": [], "shorof": [], "tarjamah": [] }
+  },
+  {
+    "id": "19",
+    "no": 19,
+    "name": "Rafi Alhakam Sadin",
+    "nis": "5019",
+    "class": "5C",
+    "group": "C",
+    "gender": "L",
+    "examiner": "Liyas Syarifudin, M.Pd.",
+    "scores": { "muhadatsah": 65, "mutholaah": 46, "nahwu": 45, "shorof": 40, "tarjamah": 50 },
+    "questionLog": { "muhadatsah": [], "mutholaah": [], "nahwu": [], "shorof": [], "tarjamah": [] }
+  },
+  {
+    "id": "20",
+    "no": 20,
+    "name": "Ragil Fadhilah",
+    "nis": "5020",
+    "class": "5C",
+    "group": "C",
+    "gender": "L",
+    "examiner": "Liyas Syarifudin, M.Pd.",
+    "scores": { "muhadatsah": 75, "mutholaah": 70, "nahwu": 65, "shorof": 68, "tarjamah": 80 },
+    "questionLog": { "muhadatsah": [], "mutholaah": [], "nahwu": [], "shorof": [], "tarjamah": [] }
+  },
+  {
+    "id": "21",
+    "no": 21,
+    "name": "Ziyad Rachman Syafiq",
+    "nis": "5021",
+    "class": "5C",
+    "group": "C",
+    "gender": "L",
+    "examiner": "Liyas Syarifudin, M.Pd.",
+    "scores": { "muhadatsah": 75, "mutholaah": 60, "nahwu": 65, "shorof": 70, "tarjamah": 75 },
+    "questionLog": { "muhadatsah": [], "mutholaah": [], "nahwu": [], "shorof": [], "tarjamah": [] }
+  }
 ];
